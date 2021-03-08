@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<alias name="person" alias="psn"/>
+	
+	<!-- 以下三个标签必须一起出现，不然会发生请求无法转发，静态资源无法访问 -->
+	<!-- 配置直接转发的页面 
+		org.springframework.web.servlet.handler.SimpleUrlHandlerMapping
+		org.springframework.web.servlet.mvc.ParameterizableViewController
+	<mvc:view-controller path="" view-name="index"/>
+	<mvc:view-controller path="success" view-name="success"/>
+	-->
+	<!-- 
+		org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping
+		org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter
+		内部类：CompositeUriComponentsContributorFactoryBean
+		org.springframework.web.servlet.handler.ConversionServiceExposingInterceptor
+		org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver
+		org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver
+		org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver
+	
+	<mvc:annotation-driven></mvc:annotation-driven>
+	-->
+	
+	<!-- 
+		org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler
+		org.springframework.web.servlet.handler.SimpleUrlHandlerMapping: 控制访问静态 html 页面
+		org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping
+		org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter
+		org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter
+		mvcHandlerMappingIntrospector
+		
+	<mvc:default-servlet-handler/>
+	-->
+</beans>
